@@ -1,0 +1,94 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:import/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "jsxSingleQuote": true,
+                "trailingComma": "all",
+                "arrowParens": "avoid",
+                "endOfLine": "lf"
+            }
+        ],
+        "import/extensions": [
+            "error",
+            { "ignorePatterns": { "ts": "never", "tsx": "never" } }
+        ],
+        "import/no-unresolved": ["error", { "ignore": ["^test-utils$"] }],
+        "arrow-body-style": "off",
+        "import/prefer-default-export": "off",
+        "import/no-cycle": "off",
+        "react/destructuring-assignment": "off",
+        "react/prop-types": "off",
+//        "react-hooks/exhaustive-deps": "warn",
+        "no-underscore-dangle": "off",
+        "react/state-in-constructor": ["error", "never"],
+        "react/static-property-placement": ["error", "static public field"],
+        "react/jsx-fragments": ["error", "element"],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-filename-extension": [
+            "error",
+            { "extensions": [".js", ".ts", ".tsx"] }
+        ],
+        "react/require-default-props": "off",
+        "react/default-props-match-prop-types": "off",
+        "react/no-array-index-key": "warn",
+        "react/jsx-key": "error",
+//        "testing-library/prefer-screen-queries": "warn",
+//        "jsx-a11y/label-has-associated-control": [
+//            "error",
+//            {
+//                "labelComponents": ["FormLabel"],
+//                "labelAttributes": ["label"],
+//                "controlComponents": ["TextInput"],
+//                "assert": "either"
+//            }
+//        ],
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal"],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["react"],
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ],
+        "@typescript-eslint/default-param-last": ["off"],
+        "no-param-reassign": "off",
+        "no-useless-catch": "off",
+//        "no-console": ["error", { "allow": ["warn", "error"] }]
+        "no-console": ["warn"]
+    }
+}
