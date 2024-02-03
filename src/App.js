@@ -1,5 +1,5 @@
 import './App.css';
-import { DesignerLayout } from './routes/designerLayout.tsx';
+import { DesignerLayout } from './routes/DesignerLayout.tsx';
 
 function App() {
   return (

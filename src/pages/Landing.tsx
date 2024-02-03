@@ -1,18 +1,30 @@
+import { Fragment } from 'react';
+
 import { Button, Space } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
-export const Preview = () => {
+import { Cover } from '../landing/Cover.tsx';
+import { Header } from '../landing/Header.tsx';
+import { Pricelist } from '../landing/Pricelist.tsx';
+
+export const Landing = () => {
   const { state } = useLocation();
 
   return (
-    <div>
+    <Fragment>
       <Space
         direction='horizontal'
         style={{
           width: '100%',
+          height: 70,
           justifyContent: 'space-between',
           padding: '10px',
           borderBottom: '2px solid black',
+          boxSizing: 'border-box',
+          position: 'fixed',
+          top: 0,
+          zIndex: 100,
+          backgroundColor: 'white',
         }}
       >
         Вы просматриваете черновую версию вашей страницы. Чтобы внести или
@@ -21,25 +33,11 @@ export const Preview = () => {
           <Button type='primary'>К редактированию</Button>
         </Link>
       </Space>
-      {/*ШАПкА*/}
-      <Space
-        direction='horizontal'
-        style={{
-          width: '100%',
-          justifyContent: 'space-between',
-          backgroundColor: '#badddd',
-          padding: '0 10px',
-        }}
-      >
-        <h6>ВАШЕ НАЗВАНИЕ</h6>
-        <div>Раздел 1</div>
-        <div>Раздел 2</div>
-        <div>Раздел 3</div>
-        {state.telegram && <Button type={'link'}>В телегу</Button>}
-      </Space>
-      {/*ЗАГОЛОВОК*/}
-      {state.title && <h1>{state.title}</h1>}
-      {state.subtitle && <p>{state.subtitle}</p>}
-    </div>
+      <Header />
+      <Cover />
+      {/*{state.title && <h1>{state.title}</h1>}*/}
+      {/*{state.subtitle && <p>{state.subtitle}</p>}*/}
+      <Pricelist />
+    </Fragment>
   );
 };
