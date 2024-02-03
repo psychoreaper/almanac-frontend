@@ -1,15 +1,15 @@
 import { Button, Collapse, Form, Space } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { About } from '../builder/About.tsx';
-import { Contacts } from '../builder/Contacts.tsx';
-import { Cover } from '../builder/Cover.tsx';
-import { Examples } from '../builder/Examples.tsx';
-import { Feedback } from '../builder/Feedback.tsx';
-import { Header } from '../builder/Header.tsx';
-import { Portfolio } from '../builder/Portfolio.tsx';
-import { Pricelist } from '../builder/Pricelist.tsx';
-import { WorkStages } from '../builder/WorkStages.tsx';
+import { About } from '../builder/About';
+import { Contacts } from '../builder/Contacts';
+import { Cover } from '../builder/Cover';
+import { Examples } from '../builder/Examples';
+import { Feedback } from '../builder/Feedback';
+import { Header } from '../builder/Header';
+import { Portfolio } from '../builder/Portfolio';
+import { Pricelist } from '../builder/Pricelist';
+import { WorkStages } from '../builder/WorkStages';
 
 // const { Panel } = Collapse;
 

@@ -3,7 +3,7 @@ import { Fragment, useState } from 'react';
 import { Checkbox, Form, Input } from 'antd';
 
 export const Header = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState<string[]>([]);
 
   const contactsOptions = [
     { label: 'Добавить кнопку Телефон', value: 'addPhone' },

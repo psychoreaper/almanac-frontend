@@ -3,9 +3,9 @@ import { Fragment } from 'react';
 import { Button, Space } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
-import { Cover } from '../landing/Cover.tsx';
-import { Header } from '../landing/Header.tsx';
-import { Pricelist } from '../landing/Pricelist.tsx';
+import { Cover } from '../landing/Cover';
+import { Header } from '../landing/Header';
+import { Pricelist } from '../landing/Pricelist';
 
 export const Landing = () => {
   const { state } = useLocation();

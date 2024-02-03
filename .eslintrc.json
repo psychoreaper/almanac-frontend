@@ -20,6 +20,13 @@
         "react",
         "prettier"
     ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
     "rules": {
         "prettier/prettier": [
             "error",
@@ -49,8 +56,8 @@
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off",
         "react/jsx-filename-extension": [
-            "error",
-            { "extensions": [".js", ".ts", ".tsx"] }
+            "off",
+            { "extensions": [".js", ".ts", ""] }
         ],
         "react/require-default-props": "off",
         "react/default-props-match-prop-types": "off",

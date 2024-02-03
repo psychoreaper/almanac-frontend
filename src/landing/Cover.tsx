@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import styled from 'styled-components';
 
-import { Container } from '../ui/Container.tsx';
+import { Container } from '../ui/Container';
 
 const Wrapper = styled.div`
   height: 900px;
@@ -21,7 +21,7 @@ export const Cover = () => {
         <Container>
           <HeadingWrapper>
             <h1>Александр Александрович Александров</h1>
-            <div>дизайнер интерьеров и т.д.</div>
+            <div>дизайнер интерьеров и т.д.?</div>
           </HeadingWrapper>
         </Container>
       </Wrapper>
