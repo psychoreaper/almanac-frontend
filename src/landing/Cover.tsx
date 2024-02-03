@@ -2,16 +2,16 @@ import { Fragment } from 'react';
 
 import styled from 'styled-components';
 
-import { Container } from '../ui/Container';
+import { colors, Container } from '../ui';
 
 const Wrapper = styled.div`
-  height: 900px;
-  background-color: #badddd;
+  height: 100vh;
+  background-color: ${colors.teal.light};
 `;
 
 const HeadingWrapper = styled.h1`
   position: relative;
-  top: 400px;
+  top: 45vh;
 `;
 
 export const Cover = () => {

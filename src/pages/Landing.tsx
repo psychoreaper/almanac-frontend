@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { Cover } from '../landing/Cover';
 import { Header } from '../landing/Header';
+import { Portfolio } from '../landing/Portfolio';
 import { Pricelist } from '../landing/Pricelist';
 
 export const Landing = () => {
@@ -38,6 +39,7 @@ export const Landing = () => {
       {/*{state.title && <h1>{state.title}</h1>}*/}
       {/*{state.subtitle && <p>{state.subtitle}</p>}*/}
       <Pricelist />
+      <Portfolio />
     </Fragment>
   );
 };

@@ -1,14 +1,16 @@
 import { Space } from 'antd';
 import styled from 'styled-components';
 
+import { colors } from '../ui';
+
 const Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  background-color: #2b5e5e;
-  color: white;
+  background-color: ${colors.teal.dark};
+  color: ${colors.teal.text.light};
 
   z-index: 100;
   position: fixed;
