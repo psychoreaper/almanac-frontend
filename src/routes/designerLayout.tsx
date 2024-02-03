@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import { Builder } from '../components/Builder.tsx';
-import { Preview } from '../components/Preview.tsx';
+import { Builder } from '../pages/Builder.tsx';
+import { Preview } from '../pages/Preview.tsx';
 
 export const DesignerLayout = () => {
   return (
