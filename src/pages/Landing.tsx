@@ -6,6 +6,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { About } from '../landing/About';
 import { Contacts } from '../landing/Contacts';
 import { Cover } from '../landing/Cover';
+import { Feedback } from '../landing/Feedback';
+import { Footer } from '../landing/Footer';
 import { Header } from '../landing/Header';
 import { Portfolio } from '../landing/Portfolio';
 import { Pricelist } from '../landing/Pricelist';
@@ -39,13 +41,15 @@ export const Landing = () => {
       </Space>
       <Header />
       <Cover />
-      {/*{state.title && <h1>{state.title}</h1>}*/}
-      {/*{state.subtitle && <p>{state.subtitle}</p>}*/}
-      <Pricelist />
-      <Portfolio />
-      <WorkStages />
-      <About />
-      <Contacts />
+      <div style={{ backgroundColor: 'white', padding: '20px 0' }}>
+        <Feedback />
+        <Pricelist />
+        <Portfolio />
+        <WorkStages />
+        <About />
+        <Contacts />
+      </div>
+      <Footer />
     </Fragment>
   );
 };

@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.ant-timeline-item-label {
+  font-weight: bold;
+}
+
+.ant-timeline-item-content {
+  width: 100%!important;
+}

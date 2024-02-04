@@ -6,7 +6,15 @@ import { colors, Container } from '../ui';
 
 const Wrapper = styled.div`
   height: 100vh;
-  background-color: ${colors.teal.light};
+  //background-color: ${colors.teal.light};
+  background: linear-gradient(
+    0deg,
+    rgba(186, 221, 221, 1) 0%,
+    rgba(43, 94, 94, 1) 100%
+  );
+  position: sticky;
+  top: 70px;
+  z-index: -1;
 `;
 
 const HeadingWrapper = styled.h1`

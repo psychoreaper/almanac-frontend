@@ -21,6 +21,24 @@ export const Contacts = () => {
   return (
     <Container>
       <h2>Контакты</h2>
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+          marginBottom: '20px',
+        }}
+      >
+        <div>
+          <h4>Режим работы</h4>
+          Пн-пт, 10:00-19:00
+        </div>
+        <div>
+          <h4>Адрес офиса</h4>
+          Санкт-Петербург, Большая Морская, 7
+        </div>
+      </div>
       <div
         style={{
           display: 'flex',

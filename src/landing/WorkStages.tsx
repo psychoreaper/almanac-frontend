@@ -1,53 +1,42 @@
-import { useState } from 'react';
-
-import { Steps } from 'antd';
+import { Timeline } from 'antd';
 
 import { Container } from '../ui';
 
 const MOCK = [
   {
-    title: 'step 1 step 1 step 1 step 1 step 1 ',
-    description:
+    label: 'step 1 step 1 step 1 step 1 step 1 ',
+    children:
       'sdfjsldkfjsldkfjsldkfjlsdkjf sdfjsldkfjlsdkjflskdjflskdjflsdkfj sdlkfjeiurowmoicmiwemewkfjwoem sdfjkljweorkwpflweop sfoisdpfwepopmigropelkm',
   },
   {
-    title: 'step 2 step 2 step 2 step 2 step 2 ',
-    description:
+    label: 'step 2 step 2 step 2 step 2 step 2 ',
+    children:
       'sdfjsldkfjsldkfjsldkfjlsdkjf sdfjsldkfjlsdkjflskdjflskdjflsdkfj sdlkfjeiurowmoicmiwemewkfjwoem sdfjkljweorkwpflweop sfoisdpfwepopmigropelkm',
   },
   {
-    title: 'step 33333333333 ',
-    description:
+    label: 'step 33333333333 ',
+    children:
       'sdfjsldkfjsldkfjsldkfjlsdkjf sdfjsldkfjlsdkjflskdjflskdjflsdkfj sdlkfjeiurowmoicmiwemewkfjwoem sdfjkljweorkwpflweop sfoisdpfwepopmigropelkm',
   },
   {
-    title: 'step 4 4 step ',
-    description:
+    label: 'step 4 4 step ',
+    children:
       'sdfjsldkfjsldkfjsldkfjlsdkjf sdfjsldkfjlsdkjflskdjflskdjflsdkfj sdlkfjeiurowmoicmiwemewkfjwoem sdfjkljweorkwpflweop sfoisdpfwepopmigropelkm',
   },
   {
-    title: 'step 5 (five) ',
-    description:
+    label: 'step 5 (five) ',
+    children:
       'sdfjsldkfjsldkfjsldkfjlsdkjf sdfjsldkfjlsdkjflskdjflskdjflsdkfj sdlkfjeiurowmoicmiwemewkfjwoem sdfjkljweorkwpflweop sfoisdpfwepopmigropelkm',
   },
 ];
 
 export const WorkStages = () => {
-  const [current, setCurrent] = useState(0);
-
-  const onChange = (value: number) => {
-    setCurrent(value);
-  };
-
   return (
     <Container>
       <h2>Этапы работы с клиентом</h2>
-      <Steps
-        current={current}
-        onChange={onChange}
-        direction={'vertical'}
-        items={MOCK}
-      />
+      <div style={{ width: '50%' }}>
+        <Timeline mode={'left'} items={MOCK} />
+      </div>
     </Container>
   );
 };
