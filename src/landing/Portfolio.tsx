@@ -25,7 +25,7 @@ const MOCK = [
   },
   {
     image:
-      'https://i.ytimg.com/vi/bgryOA_b2FA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLApA8qYWoqGRvtoCBJuhLxwSXmWqQ',
+      'https://avatars.mds.yandex.net/get-mpic/5233631/img_id4485389181271017259.jpeg/600x800',
     title: 'Проектик 2',
     subtitle: 'Невероятно клёвый проект!',
   },
@@ -53,7 +53,7 @@ export const Portfolio = () => {
   const Card = ({ card }) => {
     return (
       <CardContainer>
-        <Image sizes={'(max-width: 600px) 200px, 50vw'} src={card.image} />
+        <Image height={400} src={card.image} />
         <h3>{card.title}</h3>
         <div>{card.subtitle}</div>
       </CardContainer>

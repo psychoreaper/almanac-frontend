@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors } from '../ui';
+import { colors } from './theme';
 
 export const CardsWrapper = styled.div`
   display: flex;

@@ -3,10 +3,13 @@ import { Fragment } from 'react';
 import { Button, Space } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
+import { About } from '../landing/About';
+import { Contacts } from '../landing/Contacts';
 import { Cover } from '../landing/Cover';
 import { Header } from '../landing/Header';
 import { Portfolio } from '../landing/Portfolio';
 import { Pricelist } from '../landing/Pricelist';
+import { WorkStages } from '../landing/WorkStages';
 
 export const Landing = () => {
   const { state } = useLocation();
@@ -40,6 +43,9 @@ export const Landing = () => {
       {/*{state.subtitle && <p>{state.subtitle}</p>}*/}
       <Pricelist />
       <Portfolio />
+      <WorkStages />
+      <About />
+      <Contacts />
     </Fragment>
   );
 };
