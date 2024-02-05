@@ -5,3 +5,7 @@ export const createUser = userData => {
     ({ data }) => data,
   );
 };
+
+export const authUser = userData => {
+  return API.post('/login', userData).then(({ data }) => data);
+};

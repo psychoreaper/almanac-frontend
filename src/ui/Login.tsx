@@ -12,7 +12,8 @@ export const LoginWrapper = styled.div`
   padding: 20px;
   height: 300px;
   border-radius: 8px;
-  background-color: beige;
+  background-color: #b596d2;
+  color: white;
 
   display: flex;
   flex-direction: column;

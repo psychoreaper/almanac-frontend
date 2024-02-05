@@ -7,4 +7,12 @@ export const colors = {
       dark: 'black',
     },
   },
+  amber: {
+    light: '#ecba6d',
+    dark: '#785E37',
+  },
+  amethyst: {
+    light: '#de9ef3',
+    dark: '#68367A',
+  },
 };

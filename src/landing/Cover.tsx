@@ -6,11 +6,11 @@ import { colors, Container } from '../ui';
 
 const Wrapper = styled.div`
   height: 100vh;
-  //background-color: ${colors.teal.light};
+  //background-color: ;
   background: linear-gradient(
     0deg,
-    rgba(186, 221, 221, 1) 0%,
-    rgba(43, 94, 94, 1) 100%
+    ${colors.teal.light} 0%,
+    ${colors.teal.dark} 100%
   );
   position: sticky;
   top: 70px;
