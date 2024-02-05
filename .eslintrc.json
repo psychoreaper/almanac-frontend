@@ -97,7 +97,7 @@
         "no-param-reassign": "off",
         "no-useless-catch": "off",
 //        "no-console": ["error", { "allow": ["warn", "error"] }]
-        "no-console": ["warn"],
+        "no-console": ["off"],
         "no-unused-vars": "warn"
     }
 }
