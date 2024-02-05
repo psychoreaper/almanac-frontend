@@ -28,9 +28,10 @@ export const Header = () => {
     <Wrapper>
       <Container>
         <h6>ВАШЕ НАЗВАНИЕ</h6>
-        <div>Раздел 1</div>
-        <div>Раздел 2</div>
-        <div>Раздел 3</div>
+        <div>Расценки</div>
+        <div>Портфолио</div>
+        <div>Этапы работ</div>
+        <div>Обо мне</div>
         {/*{state.telegram && <Button type={'link'}>В телегу</Button>}*/}
       </Container>
     </Wrapper>

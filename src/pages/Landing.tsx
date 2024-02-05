@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { Button, Space } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
+import { BUILDER } from '../constants';
 import { About } from '../landing/About';
 import { Contacts } from '../landing/Contacts';
 import { Cover } from '../landing/Cover';
@@ -35,7 +36,7 @@ export const Landing = () => {
       >
         Вы просматриваете черновую версию вашей страницы. Чтобы внести или
         сохранить изменения, вернитесь на страницу редактирования.
-        <Link to={{ pathname: '/' }} state={state}>
+        <Link to={{ pathname: BUILDER }} state={state}>
           <Button type='primary'>К редактированию</Button>
         </Link>
       </Space>

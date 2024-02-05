@@ -10,6 +10,7 @@ import { Header } from '../builder/Header';
 import { Portfolio } from '../builder/Portfolio';
 import { Pricelist } from '../builder/Pricelist';
 import { WorkStages } from '../builder/WorkStages';
+import { PREVIEW } from '../constants';
 
 // const { Panel } = Collapse;
 
@@ -48,7 +49,7 @@ export const Builder = () => {
       >
         <h1>Конструктор</h1>
         <Link
-          to={{ pathname: '/preview' }}
+          to={{ pathname: PREVIEW }}
           state={{ title: title, telegram: telegram, subtitle: subtitle }}
         >
           <Button type='primary'>Просмотр</Button>

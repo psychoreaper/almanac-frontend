@@ -61,8 +61,9 @@
         ],
         "react/require-default-props": "off",
         "react/default-props-match-prop-types": "off",
-        "react/no-array-index-key": "warn",
+        "react/no-array-index-key": "off",
         "react/jsx-key": "error",
+        "import/no-named-as-default": "off",
 //        "testing-library/prefer-screen-queries": "warn",
 //        "jsx-a11y/label-has-associated-control": [
 //            "error",
