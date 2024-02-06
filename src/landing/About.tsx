@@ -15,6 +15,14 @@ const Wrapper = styled.div`
   border-radius: 8px;
 `;
 
+const ParagraphWrapper = styled.div`
+  margin-bottom: 10px;
+
+  @media (max-width: 1200px) {
+    width: 70%;
+  }
+`;
+
 // const MOCK = {
 //   text: [
 //     'Судя по всему, ребята из The xx очень любят подолгу отмалчиваться, а потом внезапно врываться с чем-то очень цепляющим и запоминающимся. Так случилось и с новым синглом Jamie xx, который диджей выпустил сольно в рамках рекламной кампании Chanel. Здесь слушателя встречает достаточно умеренное начало, перетекающее в полнейший танцевальный разнос с кучей интересных сэмплов, вокальными вкраплениями, а под конец ещё и добавляются звуки перемотки плёнки.',
@@ -31,7 +39,7 @@ export const About = ({ data }) => {
     <Container>
       <h2>Обо мне</h2>
       <Wrapper>
-        <div style={{ width: '50%' }}>
+        <ParagraphWrapper>
           {data.about?.text.map((paragraph, index) => (
             <div key={index} style={{ marginBottom: '10px' }}>
               {paragraph}
@@ -42,7 +50,7 @@ export const About = ({ data }) => {
             <br />
             {data.about?.position}
           </div>
-        </div>
+        </ParagraphWrapper>
         <Image width={'70%'} src={data.about?.image} />
       </Wrapper>
     </Container>

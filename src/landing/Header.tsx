@@ -18,9 +18,14 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled(Space)`
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   justify-content: space-between;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    margin: 0 20px;
+  }
 `;
 
 export const Header = ({ data }) => {

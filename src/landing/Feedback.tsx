@@ -14,6 +14,10 @@ const Wrapper = styled.div`
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 // const MOCK = [

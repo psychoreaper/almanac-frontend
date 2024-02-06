@@ -1,6 +1,8 @@
+import { Carousel } from 'antd';
 import styled from 'styled-components';
 
 import { colors, CardsWrapper, Container } from '../ui';
+import { useWidth } from '../utils/useWidth';
 
 const Wrapper = styled.div`
   height: 500px;
@@ -11,6 +13,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 8px;
+
+  @media (max-width: 1200px) {
+    width: 90%;
+    margin: 0 20px;
+  }
 `;
 
 const Price = styled.div`
@@ -47,6 +54,8 @@ const Price = styled.div`
 ];*/
 
 export const Pricelist = ({ data }) => {
+  const width = useWidth();
+
   const Card = ({ card }) => {
     const services = card.services?.split('\n');
     return (
@@ -65,11 +74,20 @@ export const Pricelist = ({ data }) => {
   return (
     <Container>
       <h2>Расценки</h2>
-      <CardsWrapper>
-        {data.priceList?.map((card, index) => {
-          return card.title && card.price && <Card key={index} card={card} />;
-        })}
-      </CardsWrapper>
+      {width >= 1200 && (
+        <CardsWrapper>
+          {data.priceList?.map((card, index) => {
+            return card.title && card.price && <Card key={index} card={card} />;
+          })}
+        </CardsWrapper>
+      )}
+      {width < 1200 && (
+        <Carousel style={{ margin: '0 auto', width: '100%' }}>
+          {data.priceList?.map((card, index) => {
+            return card.title && card.price && <Card key={index} card={card} />;
+          })}
+        </Carousel>
+      )}
     </Container>
   );
 };

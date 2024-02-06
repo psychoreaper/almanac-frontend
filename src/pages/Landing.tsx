@@ -1,7 +1,8 @@
 import { Fragment, useEffect, useState } from 'react';
 
-import { Button, Space, Spin } from 'antd';
+import { Button, Spin } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { getLanding } from '../api/landing';
 import { BUILDER } from '../constants';
@@ -15,6 +16,24 @@ import { Portfolio } from '../landing/Portfolio';
 import { Pricelist } from '../landing/Pricelist';
 import { WorkStages } from '../landing/WorkStages';
 
+const WarningWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 70px;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+
+  @media (max-width: 1200px) {
+    height: fit-content;
+  }
+`;
+
 export const Landing = () => {
   const { state } = useLocation();
   const [loading, setLoading] = useState(true);
@@ -27,27 +46,13 @@ export const Landing = () => {
 
   return (
     <Fragment>
-      <Space
-        direction='horizontal'
-        style={{
-          width: '100%',
-          height: 70,
-          justifyContent: 'space-between',
-          padding: '10px',
-          borderBottom: '2px solid black',
-          boxSizing: 'border-box',
-          position: 'fixed',
-          top: 0,
-          zIndex: 100,
-          backgroundColor: 'white',
-        }}
-      >
+      <WarningWrapper>
         Вы просматриваете черновую версию вашей страницы. Чтобы внести или
         сохранить изменения, вернитесь на страницу редактирования.
         <Link to={{ pathname: BUILDER }} state={state}>
           <Button type='primary'>К редактированию</Button>
         </Link>
-      </Space>
+      </WarningWrapper>
       {loading && <Spin></Spin>}
       {!loading && (
         <Fragment>
