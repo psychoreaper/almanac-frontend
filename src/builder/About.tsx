@@ -1,18 +1,43 @@
 import { Fragment } from 'react';
 
+import { PlusOutlined } from '@ant-design/icons';
+import { Form, Input, Upload } from 'antd';
+
 export const About = () => {
+  const [form] = Form.useForm();
+  const uploadButton = (
+    <button style={{ border: 0, background: 'none' }} type='button'>
+      <PlusOutlined />
+      <div style={{ marginTop: 8 }}>Загрузить аватар</div>
+    </button>
+  );
+
   return (
     <Fragment>
-      {/*<Form.Item name='cost1' label='Расценка 1'>*/}
-      {/*<Input placeholder='Введите расценку'></Input>*/}
-      {/*</Form.Item>*/}
-      1. Загрузка своего изображения личной фотографии (открытие Проводника на
-      ПК пользователя для выбора изображения в формате .jpeg, .jpg, .png) 2.
-      Добавление текста (текст без ограничений, лимит 500 символов) 3.
-      Добавление подписи (текст без ограничений, лимит 50 символов) 4.
-      Добавление должности (текст без ограничений, лимит 50 символов) 5.
-      Загрузка своего изображения подписи (открытие Проводника на ПК
-      пользователя для выбора изображения в формате .jpeg, .jpg, .png)
+      <Upload
+        name='avatar'
+        listType='picture-card'
+        className='avatar-uploader'
+        showUploadList={false}
+        action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
+        // beforeUpload={beforeUpload}
+        // onChange={handleChange}
+      >
+        {uploadButton}
+      </Upload>
+      <Form form={form} colon={false}>
+        <Form.Item label='Текст' name='email'>
+          <Input.TextArea
+            placeholder={'Небольшой текст о вас и вашей компании'}
+          />
+        </Form.Item>
+        <Form.Item label='Подпись' name='username'>
+          <Input placeholder={'Как бы вы хотели подписаться?'}></Input>
+        </Form.Item>
+        <Form.Item label='Должность' name='password'>
+          <Input placeholder={'Ваша должность в компании'} />
+        </Form.Item>
+      </Form>
     </Fragment>
   );
 };

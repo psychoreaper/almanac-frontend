@@ -55,7 +55,7 @@ const MOCK = [
     name: 'Барти Расстрелли',
     tags: ['дворец', 'гостиная', 'библиотека'],
     theme: 'teal',
-    image: 'https://i.ytimg.com/vi/CoXPUHOqWdE/hq720.jpg',
+    id: '3',
   },
   {
     name: 'Барти Расстрелли',

@@ -48,11 +48,12 @@ const Price = styled.div`
 
 export const Pricelist = ({ data }) => {
   const Card = ({ card }) => {
+    const services = card.services?.split('\n');
     return (
       <Wrapper>
         <h3>{card.title}</h3>
         <ul>
-          {card.services.map((service, index) => (
+          {services.map((service, index) => (
             <li key={index}>{service}</li>
           ))}
         </ul>
@@ -65,10 +66,8 @@ export const Pricelist = ({ data }) => {
     <Container>
       <h2>Расценки</h2>
       <CardsWrapper>
-        {data.pricelist?.map((card, index) => {
-          {
-            card.title && card.price && <Card key={index} card={card} />;
-          }
+        {data.priceList?.map((card, index) => {
+          return card.title && card.price && <Card key={index} card={card} />;
         })}
       </CardsWrapper>
     </Container>

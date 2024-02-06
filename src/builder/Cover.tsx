@@ -11,8 +11,6 @@ export const Cover = () => {
       <Form.Item name='subtitle' label='Подзаголовок'>
         <Input.TextArea placeholder='Введите подзаголовок'></Input.TextArea>
       </Form.Item>*/}
-      {/* todo: выбор фонового изображения из представленных */}
-      {/* todo: выбор цвета для букв и цифр */}
       здесь будет контент
     </Fragment>
   );

@@ -43,7 +43,6 @@ const Review = ({ review }) => {
 };
 
 export const Feedback = ({ data }) => {
-  console.log(data);
   return (
     <Wrapper>
       <h2>Отзывы о дизайнере</h2>

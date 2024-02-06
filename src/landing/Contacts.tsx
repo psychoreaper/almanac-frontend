@@ -10,7 +10,6 @@ import { ReactComponent as WaIcon } from '../icons/whatsapp-svgrepo-com.svg';
 import { Container } from '../ui';
 
 export const Contacts = ({ data }) => {
-  console.log(data);
   const Contact = ({ icon, link }) => {
     return (
       <Link to={link}>

@@ -27,19 +27,18 @@ const Wrapper = styled.div`
 // };
 
 export const About = ({ data }) => {
-  console.log(data);
   return (
     <Container>
       <h2>Обо мне</h2>
       <Wrapper>
         <div style={{ width: '50%' }}>
-          {/*{data.about?.text.map((paragraph, index) => (
+          {data.about?.text.map((paragraph, index) => (
             <div key={index} style={{ marginBottom: '10px' }}>
               {paragraph}
             </div>
-          ))}*/}
+          ))}
           <div>
-            <b>{data.about?.credits}</b>
+            <b>{data.cover?.title}</b>
             <br />
             {data.about?.position}
           </div>

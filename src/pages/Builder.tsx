@@ -16,13 +16,6 @@ import { PREVIEW } from '../constants';
 
 export const Builder = () => {
   const [form] = Form.useForm();
-  /* TODO: сделать что-то с передачей инфы туда-сюда
-  const { state } = useLocation();
-
-  if (state) {
-    form.setFieldsValue(state);
-  }
-  */
 
   const title = Form.useWatch('title', form);
   const subtitle = Form.useWatch('subtitle', form);
