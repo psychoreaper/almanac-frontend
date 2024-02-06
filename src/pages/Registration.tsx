@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 import { Button, Form, Input } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import { Header } from './Main';
 import { createUser } from '../api/auth';
@@ -8,10 +9,11 @@ import { LoginContainer, LoginWrapper } from '../ui';
 
 export const Registration = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const onFinish = values => {
-    console.log(values);
     createUser(values).then(data => console.log(data));
+    navigate(-2);
   };
 
   return (
@@ -20,7 +22,7 @@ export const Registration = () => {
       <LoginContainer>
         <LoginWrapper>
           <Form form={form} colon={false} onFinish={onFinish}>
-            <h2>Регистрация </h2>
+            <h2>Регистрация</h2>
             <Form.Item
               label='Эл. почта'
               name='email'

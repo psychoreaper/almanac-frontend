@@ -19,6 +19,8 @@ const Wrapper = styled.div`
 
 const HeadingWrapper = styled.h1`
   position: relative;
+  top: 45vh;
+
   @media (max-width: 1200px) {
     top: 25vh;
   }

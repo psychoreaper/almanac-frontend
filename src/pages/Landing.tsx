@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useState } from 'react';
 
-import { Button, Spin } from 'antd';
-import { Link, useLocation } from 'react-router-dom';
+import { /*Button,*/ Spin } from 'antd';
+import { /*Link,*/ useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { getLanding } from '../api/landing';
-import { BUILDER } from '../constants';
+// import { BUILDER } from '../constants';
 import { About } from '../landing/About';
 import { Contacts } from '../landing/Contacts';
 import { Cover } from '../landing/Cover';
@@ -28,6 +28,7 @@ const WarningWrapper = styled.div`
   top: 0;
   z-index: 100;
   background-color: white;
+  align-items: center;
 
   @media (max-width: 1200px) {
     height: fit-content;
@@ -39,19 +40,22 @@ export const Landing = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
 
+  const id = state.id;
+
   useEffect(() => {
-    getLanding({ id: '2' }).then(resp => setData(resp));
+    getLanding({ id: id }).then(resp => setData(resp));
     setLoading(false);
   }, []);
 
   return (
     <Fragment>
       <WarningWrapper>
-        Вы просматриваете черновую версию вашей страницы. Чтобы внести или
+        {/*Вы просматриваете черновую версию вашей страницы. Чтобы внести или
         сохранить изменения, вернитесь на страницу редактирования.
         <Link to={{ pathname: BUILDER }} state={state}>
           <Button type='primary'>К редактированию</Button>
-        </Link>
+        </Link>*/}
+        Вы видите MVP-версию лендинга.
       </WarningWrapper>
       {loading && <Spin></Spin>}
       {!loading && (

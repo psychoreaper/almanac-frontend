@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { getUser } from '../api/auth';
-import { LOGIN, SETTINGS } from '../constants';
+import { LOGIN, PREVIEW, SETTINGS } from '../constants';
 import { colors, Container } from '../ui';
 import { getCookie } from '../utils/getCookie';
 import { isAuthorized } from '../utils/isAuthorized';
@@ -68,21 +68,23 @@ const MOCK = [
     name: 'Барти Расстрелли',
     tags: ['дворец', 'гостиная', 'библиотека'],
     theme: 'teal',
+    id: '1',
+  },
+  {
+    name: 'Домми Трезини',
+    tags: ['дворец', 'гостиная', 'библиотека'],
+    theme: 'teal',
+    image: 'https://i.ytimg.com/vi/CoXPUHOqWdE/hq720.jpg',
+    id: '2',
+  },
+  {
+    name: 'Наполеон Бонапарт',
+    tags: ['дворец', 'гостиная', 'библиотека'],
+    theme: 'teal',
+    image: 'https://i.ytimg.com/vi/CoXPUHOqWdE/hq720.jpg',
     id: '3',
   },
-  {
-    name: 'Барти Расстрелли',
-    tags: ['дворец', 'гостиная', 'библиотека'],
-    theme: 'teal',
-    image: 'https://i.ytimg.com/vi/CoXPUHOqWdE/hq720.jpg',
-  },
-  {
-    name: 'Барти Расстрелли',
-    tags: ['дворец', 'гостиная', 'библиотека'],
-    theme: 'teal',
-    image: 'https://i.ytimg.com/vi/CoXPUHOqWdE/hq720.jpg',
-  },
-  {
+  /*{
     name: 'Домми Трезини',
     tags: ['дворец', 'спальня'],
     theme: 'amber',
@@ -117,7 +119,7 @@ const MOCK = [
     tags: ['дом', 'лужайка'],
     theme: 'amethyst',
     image: 'https://i.ytimg.com/vi/CoXPUHOqWdE/hq720.jpg',
-  },
+  },*/
 ];
 
 const Card = ({ card }) => {
@@ -201,7 +203,13 @@ export const Main = () => {
         <h2>Лучшие карточки за сегодня</h2>
         <CardsGrid>
           {MOCK.map((card, index) => (
-            <Card key={index} card={card}></Card>
+            <Link
+              key={index}
+              to={{ pathname: PREVIEW }}
+              state={{ id: card.id }}
+            >
+              <Card card={card}></Card>
+            </Link>
           ))}
         </CardsGrid>
       </Container>
