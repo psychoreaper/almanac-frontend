@@ -11,5 +11,7 @@ export const authUser = userData => {
 };
 
 export const getUser = ({ id }) => {
-  return API.get('/getUser', { params: { id: id } }).then(({ data }) => data);
+  return API.get('/user/getUser', { params: { id: id } }).then(
+    ({ data }) => data,
+  );
 };

@@ -98,6 +98,8 @@
         "no-useless-catch": "off",
 //        "no-console": ["error", { "allow": ["warn", "error"] }]
         "no-console": ["off"],
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "no-useless-escape": "off",
+        "@typescript-eslint/ban-ts-comment": "off"
     }
 }

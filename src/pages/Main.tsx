@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import { getUser } from '../api/auth';
-import { BUILDER, LOGIN } from '../constants';
+import { LOGIN, SETTINGS } from '../constants';
 import { colors, Container } from '../ui';
+import { getCookie } from '../utils/getCookie';
 import { isAuthorized } from '../utils/isAuthorized';
+import { useWidth } from '../utils/useWidth';
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -49,6 +51,17 @@ const CardWrapper = styled.div<{ theme: string }>(
     );
   `,
 );
+
+const CardsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 20px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
 
 const MOCK = [
   {
@@ -134,11 +147,16 @@ const Card = ({ card }) => {
   );
 };
 
-export const Header = ({ isEntering }) => {
+export const Header = () => {
+  const width = useWidth();
+  const isAuthed = isAuthorized();
+  const userId = getCookie('user_id');
+  console.log(userId);
+
   return (
     <HeaderWrapper>
       <HeaderContainer>Almanac</HeaderContainer>
-      {!isEntering && (
+      {!isAuthed && (
         <Link
           style={{ position: 'fixed', top: '20px', right: '20px' }}
           to={{ pathname: LOGIN }}
@@ -146,12 +164,13 @@ export const Header = ({ isEntering }) => {
           <Button>Войти</Button>
         </Link>
       )}
-      {isEntering && (
+      {isAuthed && (
         <Link
           style={{ position: 'fixed', top: '20px', right: '20px' }}
-          to={{ pathname: BUILDER }}
+          to={{ pathname: SETTINGS }}
+          state={{ id: userId }}
         >
-          <Button>Личный кабинет</Button>
+          <Button>{width >= 1200 ? 'Личный кабинет' : 'ЛК'}</Button>
         </Link>
       )}
     </HeaderWrapper>
@@ -160,7 +179,6 @@ export const Header = ({ isEntering }) => {
 
 export const Main = () => {
   const [form] = Form.useForm();
-  const isAuth = isAuthorized();
 
   useEffect(() => {
     getUser({ id: '1' })
@@ -170,7 +188,7 @@ export const Main = () => {
 
   return (
     <div>
-      <Header isEntering={isAuth} />
+      <Header />
       <Container>
         <Form form={form} colon={false}>
           <Form.Item name={'search'}>
@@ -181,18 +199,11 @@ export const Main = () => {
           </Form.Item>
         </Form>
         <h2>Лучшие карточки за сегодня</h2>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            justifyItems: 'center',
-            gap: '20px',
-          }}
-        >
+        <CardsGrid>
           {MOCK.map((card, index) => (
             <Card key={index} card={card}></Card>
           ))}
-        </div>
+        </CardsGrid>
       </Container>
     </div>
   );

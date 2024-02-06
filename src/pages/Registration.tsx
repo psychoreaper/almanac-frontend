@@ -16,7 +16,7 @@ export const Registration = () => {
 
   return (
     <Fragment>
-      <Header isEntering />
+      <Header />
       <LoginContainer>
         <LoginWrapper>
           <Form form={form} colon={false} onFinish={onFinish}>

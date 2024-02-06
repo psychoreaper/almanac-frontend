@@ -16,6 +16,7 @@ export const Login = () => {
     authUser(values)
       .then(data => {
         document.cookie = `token=${data.refresh_token}`;
+        document.cookie = `user_id=${data.user.id}`;
         navigate(-1);
       })
       .catch(() => alert('Что-то пошло не так'));
@@ -23,7 +24,7 @@ export const Login = () => {
 
   return (
     <Fragment>
-      <Header isEntering />
+      <Header />
       <LoginContainer>
         <LoginWrapper>
           <Form form={form} colon={false} onFinish={onFinish}>

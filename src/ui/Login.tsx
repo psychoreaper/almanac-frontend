@@ -18,4 +18,9 @@ export const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media (max-width: 1200px) {
+    margin: 0 20px;
+    height: fit-content;
+  }
 `;
