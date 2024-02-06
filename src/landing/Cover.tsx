@@ -22,14 +22,14 @@ const HeadingWrapper = styled.h1`
   top: 45vh;
 `;
 
-export const Cover = () => {
+export const Cover = ({ data }) => {
   return (
     <Fragment>
       <Wrapper>
         <Container>
           <HeadingWrapper>
-            <h1>Александр Александрович Александров</h1>
-            <div>дизайнер интерьеров и т.д.?</div>
+            <h1>{data.cover?.title}</h1>
+            <div>{data.cover?.subtitle}</div>
           </HeadingWrapper>
         </Container>
       </Wrapper>

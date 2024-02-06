@@ -18,7 +18,7 @@ const Price = styled.div`
   margin-left: auto;
 `;
 
-const MOCK = [
+/*const MOCK = [
   {
     title: 'База',
     services: ['asas', 'sdsdsds', 'ssffffff'],
@@ -44,9 +44,9 @@ const MOCK = [
     ],
     price: '100000 руб/мес',
   },
-];
+];*/
 
-export const Pricelist = () => {
+export const Pricelist = ({ data }) => {
   const Card = ({ card }) => {
     return (
       <Wrapper>
@@ -65,9 +65,11 @@ export const Pricelist = () => {
     <Container>
       <h2>Расценки</h2>
       <CardsWrapper>
-        {MOCK.map((card, index) => (
-          <Card key={index} card={card} />
-        ))}
+        {data.pricelist?.map((card, index) => {
+          {
+            card.title && card.price && <Card key={index} card={card} />;
+          }
+        })}
       </CardsWrapper>
     </Container>
   );

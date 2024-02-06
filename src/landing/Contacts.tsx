@@ -9,7 +9,8 @@ import { ReactComponent as VkIcon } from '../icons/vk-svgrepo-com.svg';
 import { ReactComponent as WaIcon } from '../icons/whatsapp-svgrepo-com.svg';
 import { Container } from '../ui';
 
-export const Contacts = () => {
+export const Contacts = ({ data }) => {
+  console.log(data);
   const Contact = ({ icon, link }) => {
     return (
       <Link to={link}>
@@ -21,7 +22,6 @@ export const Contacts = () => {
   return (
     <Container>
       <h2>Контакты</h2>
-
       <div
         style={{
           display: 'flex',
@@ -30,14 +30,18 @@ export const Contacts = () => {
           marginBottom: '20px',
         }}
       >
-        <div>
-          <h4>Режим работы</h4>
-          Пн-пт, 10:00-19:00
-        </div>
-        <div>
-          <h4>Адрес офиса</h4>
-          Санкт-Петербург, Большая Морская, 7
-        </div>
+        {data.contacts?.hours && (
+          <div>
+            <h4>Режим работы</h4>
+            Пн-пт, 10:00-19:00
+          </div>
+        )}
+        {data.contacts?.address && (
+          <div>
+            <h4>Адрес офиса</h4>
+            Санкт-Петербург, Большая Морская, 7
+          </div>
+        )}
       </div>
       <div
         style={{
@@ -46,12 +50,24 @@ export const Contacts = () => {
           justifyContent: 'space-around',
         }}
       >
-        <Contact link={'https://vk.com/mashup'} icon={VkIcon} />
-        <Contact link={'https://instagram.com/mashup'} icon={InstaIcon} />
-        <Contact link={'+739393939393'} icon={PhoneIcon} />
-        <Contact link={'+739393939393'} icon={EmailIcon} />
-        <Contact link={'+739393939393'} icon={WaIcon} />
-        <Contact link={'+739393939393'} icon={TgIcon} />
+        {data.contacts?.vk && (
+          <Contact link={`https://${data.contacts?.vk}`} icon={VkIcon} />
+        )}
+        {data.contacts?.insta && (
+          <Contact link={`https://${data.contacts?.insta}`} icon={InstaIcon} />
+        )}
+        {data.contacts?.phone && (
+          <Contact link={`${data.contacts?.phone}`} icon={PhoneIcon} />
+        )}
+        {data.contacts?.email && (
+          <Contact link={`${data.contacts?.email}`} icon={EmailIcon} />
+        )}
+        {data.contacts?.wa && (
+          <Contact link={`${data.contacts?.wa}`} icon={WaIcon} />
+        )}
+        {data.contacts?.tg && (
+          <Contact link={`${data.contacts?.tg}`} icon={TgIcon} />
+        )}
       </div>
     </Container>
   );

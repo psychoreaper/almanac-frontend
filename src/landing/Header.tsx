@@ -23,15 +23,15 @@ const Container = styled(Space)`
   justify-content: space-between;
 `;
 
-export const Header = () => {
+export const Header = ({ data }) => {
   return (
     <Wrapper>
       <Container>
-        <h6>ВАШЕ НАЗВАНИЕ</h6>
-        <div>Расценки</div>
-        <div>Портфолио</div>
-        <div>Этапы работ</div>
-        <div>Обо мне</div>
+        <h6>{data.cover?.title}</h6>
+        {data.pricelist?.length && <div>Расценки</div>}
+        {data.portfolio?.length && <div>Портфолио</div>}
+        {data.workstages?.length && <div>Этапы работ</div>}
+        {data.about?.id && <div>Обо мне</div>}
         {/*{state.telegram && <Button type={'link'}>В телегу</Button>}*/}
       </Container>
     </Wrapper>

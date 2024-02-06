@@ -2,7 +2,7 @@ import { Timeline } from 'antd';
 
 import { Container } from '../ui';
 
-const MOCK = [
+/*const MOCK = [
   {
     label: 'step 1 step 1 step 1 step 1 step 1 ',
     children:
@@ -28,14 +28,19 @@ const MOCK = [
     children:
       'sdfjsldkfjsldkfjsldkfjlsdkjf sdfjsldkfjlsdkjflskdjflskdjflsdkfj sdlkfjeiurowmoicmiwemewkfjwoem sdfjkljweorkwpflweop sfoisdpfwepopmigropelkm',
   },
-];
+];*/
 
-export const WorkStages = () => {
+export const WorkStages = ({ data }) => {
   return (
     <Container>
       <h2>Этапы работы с клиентом</h2>
       <div style={{ width: '50%' }}>
-        <Timeline mode={'left'} items={MOCK} />
+        <Timeline
+          mode={'left'}
+          items={data.workStages?.map(stage => {
+            return { ...stage, children: stage.description };
+          })}
+        />
       </div>
     </Container>
   );

@@ -16,7 +16,7 @@ const CardContainer = styled.div`
   border-radius: 8px;
 `;
 
-const MOCK = [
+/*const MOCK = [
   {
     image:
       'https://i.ytimg.com/vi/fLHbOmD75iI/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAmfkJEBoPU277ta-pn-ES_bOFQVg',
@@ -47,15 +47,15 @@ const MOCK = [
     title: 'Проектик 5',
     subtitle: 'Полная хренота',
   },
-];
+];*/
 
-export const Portfolio = () => {
+export const Portfolio = ({ data }) => {
   const Card = ({ card }) => {
     return (
       <CardContainer>
         <Image height={400} src={card.image} />
-        <h3>{card.title}</h3>
-        <div>{card.subtitle}</div>
+        {card.title && <h3>{card.title}</h3>}
+        {card.subtitle && <div>{card.subtitle}</div>}
       </CardContainer>
     );
   };
@@ -64,7 +64,7 @@ export const Portfolio = () => {
     <Container>
       <h2>Портфолио</h2>
       <Carousel style={{ margin: '0 auto', width: WIDTH }}>
-        {MOCK.map((card, index) => {
+        {data.portfolio?.map((card, index) => {
           return <Card card={card} key={index} />;
         })}
       </Carousel>

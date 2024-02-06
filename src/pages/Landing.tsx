@@ -1,8 +1,9 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
-import { Button, Space } from 'antd';
+import { Button, Space, Spin } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
+import { getLanding } from '../api/landing';
 import { BUILDER } from '../constants';
 import { About } from '../landing/About';
 import { Contacts } from '../landing/Contacts';
@@ -16,6 +17,13 @@ import { WorkStages } from '../landing/WorkStages';
 
 export const Landing = () => {
   const { state } = useLocation();
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    getLanding({ id: '2' }).then(resp => setData(resp));
+    setLoading(false);
+  }, []);
 
   return (
     <Fragment>
@@ -40,16 +48,21 @@ export const Landing = () => {
           <Button type='primary'>К редактированию</Button>
         </Link>
       </Space>
-      <Header />
-      <Cover />
-      <div style={{ backgroundColor: 'white', padding: '20px 0' }}>
-        <Feedback />
-        <Pricelist />
-        <Portfolio />
-        <WorkStages />
-        <About />
-        <Contacts />
-      </div>
+      {loading && <Spin></Spin>}
+      {!loading && (
+        <Fragment>
+          <Header data={data} />
+          <Cover data={data} />
+          <div style={{ backgroundColor: 'white', padding: '20px 0' }}>
+            <Feedback data={data} />
+            <Pricelist data={data} />
+            <Portfolio data={data} />
+            <WorkStages data={data} />
+            <About data={data} />
+            <Contacts data={data} />
+          </div>
+        </Fragment>
+      )}
       <Footer />
     </Fragment>
   );
