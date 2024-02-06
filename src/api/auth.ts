@@ -9,3 +9,7 @@ export const createUser = userData => {
 export const authUser = userData => {
   return API.post('/login', userData).then(({ data }) => data);
 };
+
+export const getUser = ({ id }) => {
+  return API.get('/getUser', { params: { id: id } }).then(({ data }) => data);
+};

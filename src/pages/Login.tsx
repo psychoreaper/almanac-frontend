@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 
 import { Button, Form, Input, Space } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Header } from './Main';
 import { authUser } from '../api/auth';
@@ -10,10 +10,15 @@ import { LoginContainer, LoginWrapper } from '../ui';
 
 export const Login = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const onFinish = values => {
-    // console.log(values);
-    authUser(values).then(data => console.log(data));
+    authUser(values)
+      .then(data => {
+        document.cookie = `token=${data.refresh_token}`;
+        navigate(-1);
+      })
+      .catch(() => alert('Что-то пошло не так'));
   };
 
   return (

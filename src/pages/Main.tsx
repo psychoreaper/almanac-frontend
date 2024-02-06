@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
+
 import { Button, Form, Input, Tag, Image } from 'antd';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { LOGIN } from '../constants';
+import { getUser } from '../api/auth';
+import { BUILDER, LOGIN } from '../constants';
 import { colors, Container } from '../ui';
+import { isAuthorized } from '../utils/isAuthorized';
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -142,16 +146,31 @@ export const Header = ({ isEntering }) => {
           <Button>Войти</Button>
         </Link>
       )}
+      {isEntering && (
+        <Link
+          style={{ position: 'fixed', top: '20px', right: '20px' }}
+          to={{ pathname: BUILDER }}
+        >
+          <Button>Личный кабинет</Button>
+        </Link>
+      )}
     </HeaderWrapper>
   );
 };
 
 export const Main = () => {
   const [form] = Form.useForm();
+  const isAuth = isAuthorized();
+
+  useEffect(() => {
+    getUser({ id: '1' })
+      .then(({ resp }) => console.log(resp))
+      .catch(resp => console.error(resp));
+  }, []);
 
   return (
     <div>
-      <Header isEntering={false} />
+      <Header isEntering={isAuth} />
       <Container>
         <Form form={form} colon={false}>
           <Form.Item name={'search'}>
